@@ -1,4 +1,4 @@
-package com.faceid.config;
+package com.faceid.security;
 
 import com.faceid.util.JwtUtil;
 import jakarta.servlet.FilterChain;

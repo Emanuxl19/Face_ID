@@ -5,38 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0037b107-5251-45f8-87d8-1f6396809980" name="Changes" comment="teste TOTAL">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/config/CorsConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/config/JwtConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/controller/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/controller/FaceRecognitionController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/faceid/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/dto/AuthRequestDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/dto/AuthResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/dto/FaceRecognitionDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/dto/UserDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/exception/GlobalExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/exception/InvalidCredentialsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/exception/UserNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/mapper/BiometricMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/model/BiometricData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/model/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/model/Session.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/faceid/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/repository/BiometricRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/repository/RoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/security/CustomUserDetailsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/security/JwtAuthFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/security/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/service/AuthService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/service/FaceRecognitionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/faceid/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/util/FaceRecognitionHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/util/JwtUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/util/PasswordEncoderUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/faceid/FaceIdApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,10 +58,12 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Application.Application.executor": "Run",
     "Application.FaceIdApplication.executor": "Run",
     "Application.Main.executor": "Debug",
@@ -114,10 +88,10 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/emanuel.martins/IdeaProjects/Face_ID/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "settings.qodana",
+    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   },
@@ -132,24 +106,24 @@
       <recent name="C:\Users\emanuel.martins\IdeaProjects\Face_ID\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Application">
-    <configuration name="Application" type="Application" factoryName="Application">
+  <component name="RunManager" selected="Application.FaceIdApplicastion">
+    <configuration name="FaceIdApplicastion" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.faceid.FaceIdApplication" />
-      <module name="Face_ID" />
+      <module name="face-id" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FaceIdApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="Face_ID" />
+    <configuration name="FaceIdApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="face-id" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.faceid.FaceIdApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Application" />
-      <item itemvalue="Spring Boot.FaceIdApplication (1)" />
+      <item itemvalue="Application.FaceIdApplicastion" />
+      <item itemvalue="Spring Boot.FaceIdApplication" />
     </list>
   </component>
   <component name="SharedIndexes">
@@ -175,7 +149,8 @@
       <workItem from="1755775360612" duration="7660000" />
       <workItem from="1756119886052" duration="2563000" />
       <workItem from="1756124366833" duration="6523000" />
-      <workItem from="1756131112663" duration="4586000" />
+      <workItem from="1756131112663" duration="6110000" />
+      <workItem from="1756144038614" duration="355000" />
     </task>
     <task id="LOCAL-00001" summary="teste">
       <option name="closed" value="true" />

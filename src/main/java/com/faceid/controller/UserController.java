@@ -1,10 +1,8 @@
 package com.faceid.controller;
 
-import com.faceid.dto.UserDTO;
 import com.faceid.model.User;
 import com.faceid.service.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,43 +17,46 @@ public class UserController {
         this.userService = userService;
     }
 
-    // Listar todos os usuários (somente ADMIN)
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<List<UserDTO>> getAllUsers() {
-        List<UserDTO> users = userService.getAllUsers();
-        return ResponseEntity.ok(users);
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
     }
 
-    // Buscar usuário por ID (ADMIN ou o próprio usuário)
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or #id == principal.id")
-    public ResponseEntity<UserDTO> getUserById(@PathVariable Long id) {
-        UserDTO user = userService.getUserById(id);
-        return ResponseEntity.ok(user);
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+        try {
+            // Se o usuario for encontrado, retorna 200 OK com o corpo do usuario
+            User user = userService.getUserById(id);
+            return ResponseEntity.ok(user);
+        } catch (RuntimeException e) {
+            // Se uma RuntimeException for lancada (ex: "Usuario nao encontrado"),
+            // retorna 404 Not Found com corpo vazio.
+            // O corpo de resposta NAO deve conter dados do usuario aqui.
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    // Atualizar usuário (ADMIN ou o próprio usuário)
-    @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN') or #id == principal.id")
-    public ResponseEntity<UserDTO> updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
-        UserDTO updated = userService.updateUser(id, userDTO);
-        return ResponseEntity.ok(updated);
-    }
-
-    // Deletar usuário (somente ADMIN)
-    @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id);
-        return ResponseEntity.noContent().build();
-    }
-
-    // Criar usuário (registrar via ADMIN)
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO userDTO) {
-        UserDTO created = userService.createUser(userDTO);
-        return ResponseEntity.ok(created);
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
+        try {
+            return ResponseEntity.ok(userService.updateUser(id, user));
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        try {
+            userService.deleteUser(id);
+            return ResponseEntity.noContent().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

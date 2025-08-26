@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0037b107-5251-45f8-87d8-1f6396809980" name="Changes" comment="feat: Implementa CRUD de Usuario e estrutura inicial de Face Recognition">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/faceid/controller/FaceRecognitionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/faceid/dto/RequestDTO/UserRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/faceid/dto/ResponseDTO/UserResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/faceid/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/faceid/service/FaceRecognitionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-prod.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/faceid/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/faceid/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/faceid/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/faceid/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,47 +61,47 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
-    &quot;Application.FaceIdApplicastion.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.FaceIdApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.FaceIdApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.FaceIdApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/emanuel.martins/IdeaProjects/Face_ID/src/main/java/org/example/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Application.Application.executor": "Run",
+    "Application.FaceIdApplicastion.executor": "Run",
+    "Application.FaceIdApplication.executor": "Run",
+    "Application.Main.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.FaceIdApplication (1).executor": "Run",
+    "Spring Boot.FaceIdApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/emanuel.martins/IdeaProjects/Face_ID/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlserver&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\emanuel.martins\IdeaProjects\Face_ID\src" />
@@ -162,7 +155,7 @@
       <workItem from="1756145354059" duration="7745000" />
       <workItem from="1756155239944" duration="1914000" />
       <workItem from="1756157205529" duration="822000" />
-      <workItem from="1756207066384" duration="1254000" />
+      <workItem from="1756207066384" duration="5531000" />
     </task>
     <task id="LOCAL-00001" summary="teste">
       <option name="closed" value="true" />
@@ -204,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756144476097</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: Implementa CRUD de Usuario e estrutura inicial de Face Recognition">
+      <option name="closed" value="true" />
+      <created>1756211949083</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1756211949083</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +228,8 @@
     <MESSAGE value="teste TOTAL" />
     <MESSAGE value="feat: Initial project setup for Face_ID application" />
     <MESSAGE value="atualização inicial" />
-    <option name="LAST_COMMIT_MESSAGE" value="atualização inicial" />
+    <MESSAGE value="feat: Implementa CRUD de Usuario e estrutura inicial de Face Recognition" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Implementa CRUD de Usuario e estrutura inicial de Face Recognition" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,20 +1,18 @@
-# Configuracao do Springdoc OpenAPI (mantida)
-springdoc:
-  packagesToScan: com.faceid.controller # Garante que o Springdoc escaneia seus controladores
-  swagger-ui:
-    path: /swagger-ui.html # Garante que o caminho do Swagger UI e o padrao
+spring:
+  profiles:
+    active: ${SPRING_PROFILE:dev} # Se não definido, usa 'dev'
 
-# Configuracoes para OpenCV e Armazenamento de Imagens
+springdoc:
+  packagesToScan: com.faceid.controller
+  swagger-ui:
+    enabled: ${SWAGGER_ENABLED:true} # true no dev, false no prod
+    path: /swagger-ui.html
+
 opencv:
   haarcascade:
-    # Caminho para o arquivo XML do classificador Haar Cascade.
-    # Voce DEVE baixar este arquivo (ex: haarcascade_frontalface_alt.xml)
-    # e coloca-lo em src/main/resources/ ou em um caminho absoluto.
-    # Exemplo: classpath:haarcascade_frontalface_alt.xml (se estiver em src/main/resources)
-    # Exemplo: C:/caminho/para/o/seu/haarcascade_frontalface_alt.xml (caminho absoluto)
-    path: classpath:haarcascade_frontalface_alt.xml # Assumindo que esta em src/main/resources
+    path: classpath:haarcascade_frontalface_alt.xml
 
 app:
   image:
     storage:
-      path: ./uploads/faces # Diretorio onde as imagens serao salvas (relativo ao jar da aplicacao)
+      path: ${IMAGE_STORAGE_PATH:./uploads/faces}

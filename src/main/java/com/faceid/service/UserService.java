@@ -1,10 +1,13 @@
 package com.faceid.service;
 
+import com.faceid.dto.RequestDTO.UserRequestDTO;
+import com.faceid.dto.ResponseDTO.UserResponseDTO;
 import com.faceid.model.User;
 import com.faceid.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -15,29 +18,40 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserResponseDTO> getAllUsers() {
+        return userRepository.findAll().stream()
+                .map(user -> new UserResponseDTO(user.getId(), user.getUsername()))
+                .collect(Collectors.toList());
     }
 
-    public User getUserById(Long id) {
-        return userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+    public UserResponseDTO getUserById(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuario nao encontrado com ID: " + id));
+        return new UserResponseDTO(user.getId(), user.getUsername());
     }
 
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public UserResponseDTO createUser(UserRequestDTO userRequestDTO) {
+        // ATENCAO: Senhas devem ser encriptadas em um ambiente real!
+        User user = new User(userRequestDTO.getUsername(), userRequestDTO.getPassword());
+        User savedUser = userRepository.save(user);
+        return new UserResponseDTO(savedUser.getId(), savedUser.getUsername());
     }
 
-    public User updateUser(Long id, User updatedUser) {
-        User user = getUserById(id);
-        user.setUsername(updatedUser.getUsername());
-        user.setPassword(updatedUser.getPassword());
-        return userRepository.save(user);
+    public UserResponseDTO updateUser(Long id, UserRequestDTO userRequestDTO) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuario nao encontrado com ID: " + id));
+
+        user.setUsername(userRequestDTO.getUsername());
+        // ATENCAO: Senhas devem ser encriptadas em um ambiente real!
+        user.setPassword(userRequestDTO.getPassword());
+
+        User updatedUser = userRepository.save(user);
+        return new UserResponseDTO(updatedUser.getId(), updatedUser.getUsername());
     }
 
     public void deleteUser(Long id) {
         if (!userRepository.existsById(id)) {
-            throw new RuntimeException("Usuário não encontrado");
+            throw new RuntimeException("Usuario nao encontrado com ID: " + id);
         }
         userRepository.deleteById(id);
     }

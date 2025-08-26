@@ -1,7 +1,10 @@
 package com.faceid.controller;
 
-import com.faceid.model.User;
+import com.faceid.dto.RequestDTO.UserRequestDTO;
+import com.faceid.dto.ResponseDTO.UserResponseDTO;
 import com.faceid.service.UserService;
+import jakarta.validation.Valid; // Importar para validacao de DTO
+import org.springframework.http.HttpStatus; // Importar HttpStatus
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,33 +21,32 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public ResponseEntity<List<UserResponseDTO>> getAllUsers() {
+        List<UserResponseDTO> users = userService.getAllUsers();
+        return ResponseEntity.ok(users);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+    public ResponseEntity<UserResponseDTO> getUserById(@PathVariable Long id) {
         try {
-            // Se o usuario for encontrado, retorna 200 OK com o corpo do usuario
-            User user = userService.getUserById(id);
+            UserResponseDTO user = userService.getUserById(id);
             return ResponseEntity.ok(user);
         } catch (RuntimeException e) {
-            // Se uma RuntimeException for lancada (ex: "Usuario nao encontrado"),
-            // retorna 404 Not Found com corpo vazio.
-            // O corpo de resposta NAO deve conter dados do usuario aqui.
             return ResponseEntity.notFound().build();
         }
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
+    public ResponseEntity<UserResponseDTO> createUser(@Valid @RequestBody UserRequestDTO userRequestDTO) {
+        UserResponseDTO createdUser = userService.createUser(userRequestDTO);
+        return new ResponseEntity<>(createdUser, HttpStatus.CREATED); // Retorna 201 Created
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
+    public ResponseEntity<UserResponseDTO> updateUser(@PathVariable Long id, @Valid @RequestBody UserRequestDTO userRequestDTO) {
         try {
-            return ResponseEntity.ok(userService.updateUser(id, user));
+            UserResponseDTO updatedUser = userService.updateUser(id, userRequestDTO);
+            return ResponseEntity.ok(updatedUser);
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }
@@ -54,7 +56,7 @@ public class UserController {
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         try {
             userService.deleteUser(id);
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.noContent().build(); // Retorna 204 No Content
         } catch (RuntimeException e) {
             return ResponseEntity.notFound().build();
         }

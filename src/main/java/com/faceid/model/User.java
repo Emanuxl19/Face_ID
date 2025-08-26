@@ -16,9 +16,13 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    // =======================
-    // Construtores
-    // =======================
+    @Lob
+    @Column(name = "face_features")
+    private byte[] faceFeatures;
+
+    @Column(name = "profile_image_path")
+    private String profileImagePath;
+
     public User() {}
 
     public User(String username, String password) {
@@ -26,9 +30,14 @@ public class User {
         this.password = password;
     }
 
-    // =======================
+    public User(String username, String password, byte[] faceFeatures, String profileImagePath) {
+        this.username = username;
+        this.password = password;
+        this.faceFeatures = faceFeatures;
+        this.profileImagePath = profileImagePath;
+    }
+
     // Getters e Setters
-    // =======================
     public Long getId() {
         return id;
     }
@@ -51,5 +60,21 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public byte[] getFaceFeatures() {
+        return faceFeatures;
+    }
+
+    public void setFaceFeatures(byte[] faceFeatures) {
+        this.faceFeatures = faceFeatures;
+    }
+
+    public String getProfileImagePath() {
+        return profileImagePath;
+    }
+
+    public void setProfileImagePath(String profileImagePath) {
+        this.profileImagePath = profileImagePath;
     }
 }

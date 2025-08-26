@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Adicao da dependencia parent para Spring Boot -->
+    <!-- Parent Spring Boot -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.2</version> <!-- Usa a versao definida em <properties> -->
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>3.3.2</version>
+        <relativePath/>
     </parent>
 
     <groupId>com.faceid</groupId>
@@ -22,7 +22,7 @@
 
     <properties>
         <java.version>17</java.version>
-        <spring.boot.version>3.3.2</spring.boot.version> <!-- Sua versao do Spring Boot -->
+        <spring.boot.version>3.3.2</spring.boot.version>
     </properties>
 
     <dependencies>
@@ -38,32 +38,42 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- Banco de dados H2 (para desenvolvimento e testes) -->
+        <!-- H2 Database (desenvolvimento/testes) -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- SQL Server (para producao) -->
+        <!-- SQL Server JDBC -->
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>9.4.1.jre16</version> <!-- Versao alterada para uma mais estavel -->
+            <version>11.2.0.jre17</version>
         </dependency>
 
-        <!-- OpenCV (via Bytedeco, inclui binarios nativos multiplataforma) -->
+        <!-- OpenCV Bytedeco (versão estável) -->
         <dependency>
             <groupId>org.bytedeco</groupId>
             <artifactId>opencv-platform</artifactId>
-            <version>4.10.0-1.5.11</version> <!-- Versao corrigida -->
+            <version>4.11.0-1.5.12</version>
         </dependency>
 
-        <!-- OpenAPI/Swagger -->
+
+        <!-- OpenCV Face Module -->
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>opencv-platform</artifactId>
+            <version>4.11.0-1.5.12</version>
+            <classifier>opencv-face</classifier>
+        </dependency>
+
+
+        <!-- OpenAPI / Swagger -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.5.0</version> <!-- Tente uma versao anterior -->
+            <version>2.6.0</version>
         </dependency>
 
         <!-- Testes -->

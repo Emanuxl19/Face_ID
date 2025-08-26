@@ -1,47 +1,20 @@
-spring:
-  application:
-    name: face-id
-  profiles:
-    active: dev
-
----
-
-spring:
-  config:
-    activate:
-      on-profile: dev
-  datasource:
-    url: jdbc:h2:mem:faceid;DB_CLOSE_DELAY=-1
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-
----
-
-spring:
-  config:
-    activate:
-      on-profile: prod
-  datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=faceid;encrypt=true;trustServerCertificate=true
-    username: sa
-    password: ${DB_PASSWORD_PROD} # Referencia a uma variavel de ambiente
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-  jpa:
-    hibernate:
-      ddl-auto: validate
-    show-sql: false
-
-# Configuracao do Springdoc OpenAPI
+# Configuracao do Springdoc OpenAPI (mantida)
 springdoc:
   packagesToScan: com.faceid.controller # Garante que o Springdoc escaneia seus controladores
   swagger-ui:
     path: /swagger-ui.html # Garante que o caminho do Swagger UI e o padrao
+
+# Configuracoes para OpenCV e Armazenamento de Imagens
+opencv:
+  haarcascade:
+    # Caminho para o arquivo XML do classificador Haar Cascade.
+    # Voce DEVE baixar este arquivo (ex: haarcascade_frontalface_alt.xml)
+    # e coloca-lo em src/main/resources/ ou em um caminho absoluto.
+    # Exemplo: classpath:haarcascade_frontalface_alt.xml (se estiver em src/main/resources)
+    # Exemplo: C:/caminho/para/o/seu/haarcascade_frontalface_alt.xml (caminho absoluto)
+    path: classpath:haarcascade_frontalface_alt.xml # Assumindo que esta em src/main/resources
+
+app:
+  image:
+    storage:
+      path: ./uploads/faces # Diretorio onde as imagens serao salvas (relativo ao jar da aplicacao)

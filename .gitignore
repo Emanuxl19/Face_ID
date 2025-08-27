@@ -25,10 +25,8 @@ out/
 # ---------------------------
 # Build e dependências
 # ---------------------------
-target/
+/target/
 .mvn/
-# Maven local repository (não versionar, pode ser pesado)
-.m2/
 
 # ---------------------------
 # Logs e temporários
@@ -41,23 +39,18 @@ logs/
 # ---------------------------
 # Configurações sensíveis
 # ---------------------------
-# Spring Boot profiles com credenciais
-src/main/resources/application-dev.yml
-src/main/resources/application-prod.yml
-# Variáveis de ambiente locais
+# Variáveis de ambiente locais (CORRETO IGNORAR)
 .env
 .env.local
+
 # Certificados e chaves
 *.jks
 *.keystore
 *.p12
 *.pem
 
-# Ignorar pasta de upload de faces
-/uploads/
-
 # ---------------------------
 # Uploads e arquivos binários
 # ---------------------------
-uploads/
+/uploads/
 *.db

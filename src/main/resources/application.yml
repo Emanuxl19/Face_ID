@@ -1,11 +1,17 @@
 spring:
   profiles:
-    active: ${SPRING_PROFILE:dev} # Se não definido, usa 'dev'
+    active: ${SPRING_PROFILE:dev}  # padrão é 'dev'
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.SQLServerDialect
+    show-sql: true
 
 springdoc:
   packagesToScan: com.faceid.controller
   swagger-ui:
-    enabled: ${SWAGGER_ENABLED:true} # true no dev, false no prod
+    enabled: ${SWAGGER_ENABLED:true}
     path: /swagger-ui.html
 
 opencv:

@@ -1,5 +1,6 @@
 package com.faceid.controller;
 
+import com.faceid.model.FaceVerificationRequest; // <-- Importe a nova classe
 import com.faceid.model.User;
 import com.faceid.service.FaceRecognitionService;
 import org.springframework.http.HttpStatus;
@@ -29,7 +30,7 @@ public class FaceRecognitionController {
     @PostMapping(value = "/register/file/{userId}", consumes = "multipart/form-data")
     public ResponseEntity<User> registerFaceFromFile(
             @PathVariable Long userId,
-            @RequestParam("file") MultipartFile file) { // 'file' agora e obrigatorio aqui
+            @RequestParam("file") MultipartFile file) {
         try {
             if (file == null || file.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -46,16 +47,17 @@ public class FaceRecognitionController {
 
     /**
      * Endpoint para registrar caracteristicas faciais de um usuario a partir de uma imagem via STRING BASE64.
-     * Recebe a imagem como String Base64 no corpo da requisicao (JSON).
+     * Recebe um objeto JSON contendo a imagem como String Base64.
      * @param userId ID do usuario para associar a face.
-     * @param base64Image String Base64 da imagem.
+     * @param request Objeto contendo a String Base64 da imagem.
      * @return ResponseEntity com o usuario atualizado.
      */
     @PostMapping(value = "/register/base64/{userId}", consumes = "application/json")
     public ResponseEntity<User> registerFaceFromBase64(
             @PathVariable Long userId,
-            @RequestBody String base64Image) { // 'base64Image' agora e obrigatorio aqui
+            @RequestBody FaceVerificationRequest request) { // <-- CORRIGIDO
         try {
+            String base64Image = request.getBase64Image(); // <-- CORRIGIDO
             if (base64Image == null || base64Image.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
@@ -98,16 +100,17 @@ public class FaceRecognitionController {
 
     /**
      * Endpoint para verificar uma face em uma imagem contra as caracteristicas registradas de um usuario via STRING BASE64.
-     * Recebe a imagem como String Base64 no corpo da requisicao (JSON).
+     * Recebe um objeto JSON contendo a imagem como String Base64.
      * @param userId ID do usuario para verificacao.
-     * @param base64Image String Base64 da imagem.
+     * @param request Objeto contendo a String Base64 da imagem.
      * @return ResponseEntity com o resultado da verificacao (true/false).
      */
     @PostMapping(value = "/verify/base64/{userId}", consumes = "application/json")
     public ResponseEntity<Boolean> verifyFaceFromBase64(
             @PathVariable Long userId,
-            @RequestBody String base64Image) {
+            @RequestBody FaceVerificationRequest request) { // <-- CORRIGIDO
         try {
+            String base64Image = request.getBase64Image(); // <-- CORRIGIDO
             if (base64Image == null || base64Image.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }

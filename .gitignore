@@ -1,32 +1,24 @@
 # ---------------------------
 # Sistema Operacional
 # ---------------------------
-# Windows
 Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
-
-# macOS
 .DS_Store
-
-# Linux
 *~
 
 # ---------------------------
 # IDEs
 # ---------------------------
-# IntelliJ IDEA
 .idea/
 *.iml
 out/
-# VS Code
 .vscode/
 
 # ---------------------------
 # Build e dependências
 # ---------------------------
 /target/
-.mvn/
 
 # ---------------------------
 # Logs e temporários
@@ -39,18 +31,35 @@ logs/
 # ---------------------------
 # Configurações sensíveis
 # ---------------------------
-# Variáveis de ambiente locais (CORRETO IGNORAR)
 .env
 .env.local
 
-# Certificados e chaves
+application-local.yml
+application-dev.yml
+application-prod.yml
+
+# Certificados
 *.jks
 *.keystore
 *.p12
 *.pem
 
 # ---------------------------
-# Uploads e arquivos binários
+# Banco / arquivos locais
+# ---------------------------
+*.db
+*.sqlite
+*.h2.db
+
+# ---------------------------
+# Uploads
 # ---------------------------
 /uploads/
-*.db
+
+# ---------------------------
+# Android (futuro)
+# ---------------------------
+.gradle/
+local.properties
+*.apk
+*.ap_

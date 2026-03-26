@@ -14,6 +14,7 @@ $RECYCLE.BIN/
 *.iml
 out/
 .vscode/
+.claude/
 
 # ---------------------------
 # Build e dependências
